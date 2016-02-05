@@ -11,5 +11,8 @@ server.connection({
 
 server.route({
   method: 'POST',
-  path: ''
+  path: '/update'
+  handler: function(req, reply) {
+    reply('Hello!');
+  }
 });
