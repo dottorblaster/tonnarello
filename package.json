@@ -1,0 +1,17 @@
+{
+  "name": "tonnarello",
+  "version": "0.0.1",
+  "description": "A simple NodeJS pastebin server",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "keywords": [
+    "pastebin"
+  ],
+  "author": "Alessio 'Bl@ster' Biancalana",
+  "license": "MIT",
+  "dependencies": {
+    "hapi": "^13.0.0"
+  }
+}
