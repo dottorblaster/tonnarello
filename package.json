@@ -12,6 +12,7 @@
   "author": "Alessio 'Bl@ster' Biancalana",
   "license": "MIT",
   "dependencies": {
-    "hapi": "^13.0.0"
+    "hapi": "^13.0.0",
+    "inert": "^3.2.0"
   }
 }
