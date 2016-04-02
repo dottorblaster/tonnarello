@@ -1,10 +1,10 @@
 'use strict';
 
 const Hapi = require('hapi'),
-  config = require('./config.js'),
-  Path = require('path'),
-  Inert = require('inert'),
-  server = new Hapi.Server({
+	config = require('./config.js'),
+	Path = require('path'),
+	Inert = require('inert'),
+	server = new Hapi.Server({
 		connections: {
 			routes: {
 				files: {
@@ -15,8 +15,8 @@ const Hapi = require('hapi'),
 	});
 
 server.connection({
-  host: config.host || 'localhost',
-  port: config.port || '3000'
+	host: config.host || 'localhost',
+	port: config.port || '3000'
 });
 server.register(Inert, function () {});
 
@@ -35,19 +35,19 @@ server.route({
 });
 
 server.route({
-  method: 'POST',
-  path: '/api/new',
-  handler: function(req, reply) {
-    reply('Hello!');
-  }
+	method: 'POST',
+	path: '/api/new',
+	handler: function(req, reply) {
+		reply('Hello!');
+	}
 });
 
 server.route({
-  method: 'POST',
-  path: '/api/clone',
-  handler: function(req, reply) {
-    reply('Hello!');
-  }
+	method: 'POST',
+	path: '/api/clone',
+	handler: function(req, reply) {
+		reply('Hello!');
+	}
 });
 
 server.start(function (err) {
