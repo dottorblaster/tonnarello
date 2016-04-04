@@ -25,7 +25,7 @@ server.route({
 	path: '/{param*}',
 	handler: {
 		directory: {
-			path: 'public',
+			path: 'front/public',
 			defaultExtension: 'html',
 			redirectToSlash: true,
 			listing: false,
