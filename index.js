@@ -2,8 +2,10 @@
 
 const Hapi = require('hapi'),
 	config = require('./config.js'),
+	Fs = require('fs'),
 	Path = require('path'),
 	Inert = require('inert'),
+	ensureDir = require('./lib/ensuredir.js'),
 	server = new Hapi.Server({
 		connections: {
 			routes: {
@@ -38,7 +40,7 @@ server.route({
 	method: 'POST',
 	path: '/api/new',
 	handler: function(req, reply) {
-		reply('Hello!');
+		console.log(req.payload.data);
 	}
 });
 
@@ -54,6 +56,7 @@ server.start(function (err) {
 	if (err) {
 		console.error('An error occurred: ' + err);
 	} else {
+		ensureDir('pastas');
 		console.log('Tonnarello running at:', server.info.uri);
 	}
 });
