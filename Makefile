@@ -2,7 +2,7 @@ SOURCEDIR=.
 SOURCES := $(shell find $(SOURCEDIR) -name '*.go')
 
 build:
-	go build $(SOURCES) -o target/tonnarello
+	go build -o target/tonnarello $(SOURCES)
 
 test:
 	go test
