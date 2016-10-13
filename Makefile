@@ -4,6 +4,9 @@ SOURCES := $(shell find $(SOURCEDIR) -name '*.go')
 build:
 	go build -o target/tonnarello $(SOURCES)
 
+run:
+	go run $(SOURCES)
+
 test:
 	go test
 
