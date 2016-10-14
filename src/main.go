@@ -10,6 +10,8 @@ func main() {
 		Layout: "layout.html",
 	})).Directory("./templates", ".html")
 
+	iris.Static("/public", "./static", 1)
+
 	iris.Get("/", func(ctx *iris.Context) {
 		ctx.Render("home.html", Page{"Tonnarello", Pasta{"null", "null", "null"}}, iris.RenderOptions{"gzip": true})
 	})
