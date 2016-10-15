@@ -16,5 +16,9 @@ func main() {
 		ctx.Render("home.html", Page{"Tonnarello", Pasta{"null", "null", "null"}}, iris.RenderOptions{"gzip": true})
 	})
 
+	iris.Post("/insert", func (ctx *iris.Context) {
+		// TODO
+	})
+
 	iris.Listen(":4000")
 }
