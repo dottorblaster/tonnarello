@@ -1,10 +1,16 @@
 <div class="row">
-	<form class="col s12" action="/insert">
+	<form class="col s12" action="/insert" method="post">
 		<div class="row">
 			<div class="input-field col s11">
 				<i class="material-icons prefix">mode_edit</i>
-				<textarea id="icon_prefix2" class="materialize-textarea"></textarea>
+				<textarea id="icon_prefix2" class="materialize-textarea" name="Content"></textarea>
 				<label for="icon_prefix2">Enter your pasta:</label>
+			</div>
+		</div>
+		<div class="row">
+			<div class="input-field col s11">
+				<input type="text" id="label_input" name="Label"></input>
+				<label for="label_input">Label:</label>
 			</div>
 		</div>
 		<div class="row">
