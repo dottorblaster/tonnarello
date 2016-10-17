@@ -17,17 +17,27 @@
 				</ul> -->
 			</div>
 		</nav>
-		<div class="container">
-			<div class="row">
-				<div class="col s3">
-					<p class="flow-text">Tonnarello is a dead simple pastebin webapp that saves you from copypasta typos.</p>
-				</div>
-				<div class="col s9">
-					<!-- Render the current template here -->
-					{{ yield }}
+		<main>
+			<div class="container">
+				<div class="row">
+					<div class="col s3">
+						<p class="flow-text">Tonnarello is a dead simple pastebin webapp that saves you from copypasta typos.</p>
+					</div>
+					<div class="col s9">
+						<!-- Render the current template here -->
+						{{ yield }}
+					</div>
 				</div>
 			</div>
-		</div>
+		</main>
+		<footer class="page-footer">
+			<div class="footer-copyright">
+				<div class="container">
+				© 2014 Copyright Text
+				<a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+				</div>
+			</div>
+		</footer>
 	</body>
 	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 	<script type="text/javascript" src="/public/materialize/js/materialize.min.js"></script>
