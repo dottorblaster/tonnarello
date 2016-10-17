@@ -13,7 +13,7 @@ func main() {
 	iris.Static("/public", "./static", 1)
 
 	iris.Get("/", func(ctx *iris.Context) {
-		ctx.Render("home.html", Page{"Tonnarello", Pasta{"null", "null", "null"}}, iris.RenderOptions{"gzip": true})
+		ctx.Render("home.html", Page{"Tonnarello", Pasta{"null", "null"}}, iris.RenderOptions{"gzip": true})
 	})
 
 	iris.Listen(":4000")
