@@ -1,7 +1,9 @@
 package main
 
+import "gopkg.in/mgo.v2/bson"
+
 type Pasta struct {
-	Id string
+	_id bson.ObjectId
 	Label string
 	Content string
 }
