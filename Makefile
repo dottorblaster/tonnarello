@@ -1,5 +1,5 @@
 SOURCEDIR=.
-SOURCES := $(shell find $(SOURCEDIR) -name '*.go' -maxdepth 1)
+SOURCES := $(shell find $(SOURCEDIR) -maxdepth 1 -name '*.go')
 
 build:
 	go build -o target/tonnarello $(SOURCES)
