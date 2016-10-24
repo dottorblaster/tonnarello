@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"log"
+	"net/http"
 
 	"github.com/dottorblaster/tonnarello/database"
 
@@ -42,7 +43,7 @@ func main() {
 			log.Fatal(err)
 		}
 
-		ctx.Write("200 ok")
+		ctx.Redirect("pasta/" + pasta.Id.Hex(), http.StatusSeeOther)
 	})
 
 	iris.Get("/pasta/:id", func(ctx *iris.Context) {
@@ -50,8 +51,7 @@ func main() {
 		pasta := &Pasta{}
 
 		pastas.FindId(objId).One(pasta)
-		fmt.Println(pasta)
-		ctx.Write("meh")
+		ctx.Render("pasta.html", Page{"Tonnarello", pasta}, iris.RenderOptions{"gzip": true})
 	})
 
 	iris.Listen(":4000")
