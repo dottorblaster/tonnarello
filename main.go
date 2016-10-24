@@ -35,17 +35,12 @@ func main() {
 			fmt.Printf("ERR")
 		}
 
-		docId := bson.NewObjectId();
-		pasta._id = docId
-		fmt.Println(pasta._id.Hex())
-		fmt.Printf("%s", bson.ObjectIdHex(docId.Hex()))
+		pasta.Id = bson.NewObjectId()
 
 		err = pastas.Insert(pasta)
 		if err != nil {
 			log.Fatal(err)
 		}
-
-		fmt.Println(pasta._id.Hex())
 
 		ctx.Write("200 ok")
 	})
