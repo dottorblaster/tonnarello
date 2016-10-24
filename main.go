@@ -37,15 +37,26 @@ func main() {
 
 		docId := bson.NewObjectId();
 		pasta._id = docId
-		fmt.Println(pasta)
-		fmt.Println(bson.ObjectIdHex(docId.Hex()))
+		fmt.Println(pasta._id.Hex())
+		fmt.Printf("%s", bson.ObjectIdHex(docId.Hex()))
 
-		err = pastas.Insert(&pasta)
+		err = pastas.Insert(pasta)
 		if err != nil {
 			log.Fatal(err)
 		}
 
+		fmt.Println(pasta._id.Hex())
+
 		ctx.Write("200 ok")
+	})
+
+	iris.Get("/pasta/:id", func(ctx *iris.Context) {
+		objId := bson.ObjectIdHex(ctx.Param("id"))
+		pasta := &Pasta{}
+
+		pastas.FindId(objId).One(pasta)
+		fmt.Println(pasta)
+		ctx.Write("meh")
 	})
 
 	iris.Listen(":4000")
