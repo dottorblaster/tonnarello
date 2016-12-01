@@ -50,8 +50,8 @@ func main() {
 		objID := bson.ObjectIdHex(ctx.Param("id"))
 		pasta := Pasta{}
 
-		pastas.FindId(objID).One(pasta)
-		ctx.Render("pasta.html", Page{"Tonnarello", pasta}, iris.RenderOptions{"gzip": true})
+		pastas.FindId(objID).One(&pasta)
+		ctx.Render("pasta.html", Page{"Tonnarello • " + pasta.Label, pasta}, iris.RenderOptions{"gzip": true})
 	})
 
 	iris.Listen(":4000")
