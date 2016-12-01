@@ -36,19 +36,19 @@ func main() {
 			fmt.Printf("ERR")
 		}
 
-		pasta.Id = bson.NewObjectId()
+		pasta.ID = bson.NewObjectId()
 
 		err = pastas.Insert(pasta)
 		if err != nil {
 			log.Fatal(err)
 		}
 
-		ctx.Redirect("pasta/"+pasta.Id.Hex(), http.StatusSeeOther)
+		ctx.Redirect("pasta/"+pasta.ID.Hex(), http.StatusSeeOther)
 	})
 
 	iris.Get("/pasta/:id", func(ctx *iris.Context) {
 		objID := bson.ObjectIdHex(ctx.Param("id"))
-		pasta := &Pasta{}
+		pasta := Pasta{}
 
 		pastas.FindId(objID).One(pasta)
 		ctx.Render("pasta.html", Page{"Tonnarello", pasta}, iris.RenderOptions{"gzip": true})
