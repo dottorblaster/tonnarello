@@ -9,8 +9,8 @@ import (
 
 	"gopkg.in/mgo.v2/bson"
 
-	"github.com/kataras/iris"
 	"github.com/kataras/go-template/html"
+	"github.com/kataras/iris"
 )
 
 func main() {
@@ -29,7 +29,7 @@ func main() {
 		ctx.Render("home.html", Page{"Tonnarello", Pasta{"null", "null", "null"}}, iris.RenderOptions{"gzip": true})
 	})
 
-	iris.Post("/insert", func (ctx *iris.Context) {
+	iris.Post("/insert", func(ctx *iris.Context) {
 		pasta := Pasta{}
 		err := ctx.ReadForm(&pasta)
 		if err != nil {
@@ -43,14 +43,14 @@ func main() {
 			log.Fatal(err)
 		}
 
-		ctx.Redirect("pasta/" + pasta.Id.Hex(), http.StatusSeeOther)
+		ctx.Redirect("pasta/"+pasta.Id.Hex(), http.StatusSeeOther)
 	})
 
 	iris.Get("/pasta/:id", func(ctx *iris.Context) {
-		objId := bson.ObjectIdHex(ctx.Param("id"))
+		objID := bson.ObjectIdHex(ctx.Param("id"))
 		pasta := &Pasta{}
 
-		pastas.FindId(objId).One(pasta)
+		pastas.FindId(objID).One(pasta)
 		ctx.Render("pasta.html", Page{"Tonnarello", pasta}, iris.RenderOptions{"gzip": true})
 	})
 
