@@ -54,6 +54,14 @@ func main() {
 		ctx.Render("pasta.html", Page{"Tonnarello • " + pasta.Label, pasta}, iris.RenderOptions{"gzip": true})
 	})
 
+	iris.Get("/raw/:id", func(ctx *iris.Context) {
+		objID := bson.ObjectIdHex(ctx.Param("id"))
+		pasta := Pasta{}
+
+		pastas.FindId(objID).One(&pasta)
+		ctx.Text(iris.StatusOK, pasta.Content)
+	})
+
 	iris.Listen(":4000")
 
 	defer mongoSession.Close()
